@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.top {
+    height: 100px;
+}
+
+.left {
+    display: inline-block;
+    width: 20vw;
+    height: calc(100vh - 100px);
+}
+
+.right {
+    display: inline-block;
+    width: 80vw;
+    height: calc(100vh - 100px);
+}
