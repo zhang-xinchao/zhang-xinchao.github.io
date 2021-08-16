@@ -28,13 +28,13 @@ body {
 }
 
 .left {
-    display: inline-block;
+    float: left;
     width: 20vw;
     height: calc(100vh - 100px);
 }
 
 .right {
-    display: inline-block;
+    float: right;
     width: 80vw;
     height: calc(100vh - 100px);
 }
