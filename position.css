@@ -5,6 +5,7 @@
 body {
   margin: 0;
   background-color: #32494c;
+  padding: 20px;
 }
 
 .container {
@@ -12,12 +13,12 @@ body {
   flex-flow: row wrap;
   justify-content: center;
   margin: auto;
-  max-width: 600px;
+  max-width: 1200px;
 }
 
 .balloon {
-  width: 150px;
-  height: 100px;
+  width: 300px;
+  height: 200px;
   flex: none;
   background-image: url("./assets/balloon.jpg");
   background-size: contain;
