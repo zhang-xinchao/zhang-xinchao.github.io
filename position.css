@@ -1,46 +1,110 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
+  margin: 0;
+  background-color: #32494c;
 }
 
-.red {
-    background-color: rgba(255,0,0,0.5);
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: auto;
+  max-width: 600px;
 }
 
-.green {
-    background-color: rgba(0,255,0, 0.5);
+.balloon {
+  width: 150px;
+  height: 100px;
+  flex: none;
+  background-image: url("./assets/balloon.jpg");
+  background-size: contain;
+  margin: 5px;
 }
 
-.yellow {
-    background-color: rgba(255,255,0,0.5);
+.rounded {
+  border-radius: 5px;
 }
 
-.blue {
-    background-color: rgba(0,0,255,0.5);
+.box-shadow {
+  box-shadow: 0px 0px 3px 0px #05094f;
 }
 
-.top {
-    position: absolute;
-    width: 100vw;
-    height: 100px;
+.rise-on-hover {
+  transition: 0.5s ease-in-out;
 }
 
-.left {
-    position: absolute;
-    top: 100px;
-    width: 20vw;
-    height: calc(100vh - 100px);
+.rise-on-hover:hover {
+  box-shadow: 0px 0px 3px 0px #05094f;
+  transform: scale(1.02) rotate(2deg);
 }
 
-.right {
-    position: absolute;
-    top: 100px;
-    left: 20vw;
-    width: 80vw;
-    height: calc(100vh - 100px);
+.color-on-hover {
+  transition: 1s linear;
+  filter: grayscale(1);
 }
 
-/**/
+.color-on-hover:hover {
+  filter: none;
+}
+
+.with-annotation {
+  position: relative;
+}
+
+.with-annotation::before {
+  content: "Balloon";
+  position: absolute;
+  padding: 5px;
+  right: 0;
+  bottom: 0;
+  font-size: medium;
+}
+
+.annotation-on-hover::before {
+  opacity: 0;
+  transition: 1.5s ease-in-out;
+}
+
+.annotation-on-hover:hover::before {
+  opacity: 1;
+  text-shadow: 2px 2px 4px #224258;
+}
+
+.blur {
+  filter: blur(0.5px);
+}
+
+.clear-on-hover {
+  transition: 1s ease;
+}
+
+.clear-on-hover:hover {
+  filter: none;
+}
+
+.mask-on-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.mask-on-hover::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  transition: 1s ease-in-out;
+  border-radius: 200px;
+}
+
+.mask-on-hover:hover::after {
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(0.5px);
+  border-radius: 0;
+}
