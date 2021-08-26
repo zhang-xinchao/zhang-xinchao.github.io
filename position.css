@@ -1,133 +1,231 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background-color: #32494c;
-  padding: 20px;
 }
 
 .container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  margin: auto;
-  max-width: 1200px;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: aquamarine;
 }
 
-.balloon {
+.stopwatch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   width: 300px;
-  height: 200px;
-  flex: none;
-  background-image: url("./assets/balloon.jpg");
-  background-size: contain;
-  margin: 5px;
+  height: 340px;
+
+  z-index: 0;
 }
 
-.rounded {
-  border-radius: 5px;
-}
-
-.box-shadow {
-  box-shadow: 0px 0px 3px 0px #05094f;
-}
-
-.rise-on-hover {
-  transition: 0.5s ease-in-out;
-}
-
-.rise-on-hover:hover {
-  box-shadow: 0px 0px 3px 0px #05094f;
-  transform: scale(1.02) rotate(2deg);
-}
-
-.color-on-hover {
-  transition: 1s linear;
-  filter: grayscale(1);
-}
-
-.color-on-hover:hover {
-  filter: none;
-}
-
-.with-annotation {
+.controller {
   position: relative;
+  z-index: 1;
 }
 
-.with-annotation::before {
-  content: "Balloon";
-  position: absolute;
-  padding: 5px;
-  right: 0;
-  bottom: 0;
-  font-size: medium;
-}
-
-.annotation-on-hover::before {
+input.controller {
   opacity: 0;
-  transition: 1.5s ease-in-out;
+  pointer-events: none;
 }
 
-.annotation-on-hover:hover::before {
-  opacity: 1;
-  text-shadow: 2px 2px 4px #224258;
-}
-
-.blur {
-  filter: blur(0.5px);
-}
-
-.clear-on-hover {
-  transition: 1s ease;
-}
-
-.clear-on-hover:hover {
-  filter: none;
-}
-
-.mask-on-hover {
-  position: relative;
-  overflow: hidden;
-}
-
-.mask-on-hover::after {
-  content: "";
+label.controller {
+  display: block;
+  width: 20px;
+  height: 21px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: bisque;
   position: absolute;
-  top: 100%;
-  left: 100%;
+
+  left: calc(50% - 10px);
+  transform-origin: 10px 170px;
+}
+
+label.controller.reset:active {
+  transform: translateY(2px);
+}
+
+label.controller.start {
+  transform: rotate(30deg);
+}
+
+label.controller.start:active {
+  transform: rotate(30deg) translateY(2px);
+}
+
+label.controller.pause {
+  transform: rotate(-30deg);
+}
+
+label.controller.pause:active {
+  transform: rotate(-30deg) translateY(2px);
+}
+
+label.controller:active {
+  height: 19px;
+}
+
+label.controller:hover {
+  transition: 0.2s;
+  border-top: 7px solid #e86520;
+}
+
+.watch-face {
+  width: 300px;
+  height: 300px;
+
+  background-color: bisque;
+  border-radius: 300px;
+
+  position: absolute;
+  bottom: 0;
+}
+
+.watch-face .marks {
+  position: absolute;
   width: 100%;
   height: 100%;
-  transition: 1s ease-in-out;
-  border-radius: 200px;
 }
 
-.mask-on-hover:hover::after {
+.watch-face .mark {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 1px;
+  height: calc(100% - 4px);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.marks .mark:nth-child(2) {
+  transform: rotate(30deg);
+}
+
+.marks .mark:nth-child(3) {
+  transform: rotate(60deg);
+}
+
+.marks .mark:nth-child(4) {
+  transform: rotate(90deg);
+}
+
+.marks .mark:nth-child(5) {
+  transform: rotate(120deg);
+}
+
+.marks .mark:nth-child(6) {
+  transform: rotate(150deg);
+}
+
+.marks:nth-child(1) {
+  transform: rotate(6deg);
+}
+
+.marks:nth-child(2) {
+  transform: rotate(12deg);
+}
+
+.marks:nth-child(3) {
+  transform: rotate(18deg);
+}
+
+.marks:nth-child(4) {
+  transform: rotate(24deg);
+}
+
+.big-ring {
+  position: absolute;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: bisque;
+  border-radius: 100%;
+}
+
+.long-marks .mark {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.small-ring {
+  position: absolute;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: bisque;
+  border-radius: 100%;
+  box-shadow: inset 0 0 10px 0px #d4c1aa;
+}
+
+.second-pointer {
+  position: absolute;
+  width: 10px;
+  height: 130px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+
+  filter: drop-shadow(0px 1px 3px black);
+
+  transform-origin: bottom center;
+}
+
+.second-pointer::before {
+  content: "";
+  position: absolute;
   top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(0.5px);
-  border-radius: 0;
+  height: 100px;
+  width: 4px;
+
+  border-style: solid;
+  border-color: transparent;
+  border-width: 0 1px 100px 1px;
+  border-bottom-color: black;
 }
 
-.tilt-on-hover:hover {
-  animation: tilt 2s linear infinite;
+.second-pointer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  width: 4px;
+
+  border-style: solid;
+  border-color: transparent;
+  border-width: 30px 1px 0 1px;
+  border-top-color: black;
 }
 
-@keyframes tilt {
+.controller.start:checked ~ .watch-face .second-pointer {
+  animation: rotate 20s linear infinite;
+}
+
+.controller.start:checked ~ .watch-face .second-pointer {
+  animation: rotate 20s linear infinite;
+}
+
+.controller.pause:checked ~ .watch-face .second-pointer {
+  animation: rotate 20s linear infinite;
+  animation-play-state: paused;
+}
+
+@keyframes rotate {
   0% {
-    transform: scale(1.02) ;
+    transform: translate(-50%, -100%) rotate(0deg);
   }
-
-  25% {
-    transform: scale(1.02) rotate(5deg);
-  }
-
-  75% {
-    transform: scale(1.02) rotate(-5deg);
-  }
-
   100% {
-    transform: scale(1.02) ;
+    transform: translate(-50%, -100%) rotate(360deg);
   }
 }

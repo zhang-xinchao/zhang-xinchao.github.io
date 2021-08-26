@@ -5,15 +5,66 @@
 
   <body>
     <div class="container">
-      <div class="balloon rounded rise-on-hover"></div>
-      <div class="balloon box-shadow"></div>
-      <div class="balloon rounded box-shadow"></div>
-      <div class="balloon color-on-hover"></div>
-      <div class="balloon with-annotation"></div>
-      <div class="balloon with-annotation annotation-on-hover"></div>
-      <div class="balloon blur clear-on-hover"></div>
-      <div class="balloon mask-on-hover"></div>
-      <div class="balloon tilt-on-hover"></div>
+      <div class="stopwatch">
+        <input type="radio" id="reset" class="controller reset" name="state" />
+        <label for="reset" class="controller reset"></label>
+
+        <input type="radio" id="start" class="controller start" name="state" />
+        <label for="start" class="controller start"></label>
+
+        <input type="radio" id="pause" class="controller pause" name="state" />
+        <label for="pause" class="controller pause"></label>
+
+        <div class="watch-face">
+          <div class="marks">
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+          </div>
+          <div class="marks">
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+          </div>
+          <div class="marks">
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+          </div>
+          <div class="marks">
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+          </div>
+
+          <div class="big-ring"></div>
+
+          <div class="marks long-marks">
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+            <div class="mark"></div>
+          </div>
+
+          <div class="small-ring"></div>
+
+          <div class="second-pointer"></div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
