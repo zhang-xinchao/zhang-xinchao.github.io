@@ -229,3 +229,30 @@ label.controller:hover {
     transform: translate(-50%, -100%) rotate(360deg);
   }
 }
+
+
+.pointer {
+  position: fixed;
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+
+  background-color: transparent;
+  border: 5px solid rgb(233 30 100 / 80%);
+  box-shadow: 0 0 5px 0 rgb(233 30 100);
+  top: 0;
+  left: 0;
+
+  transform: translate(-50%, -50%);
+  display: none;
+
+  pointer-events: none;
+}
+
+.pointer.visible {
+  display: block;
+}
+
+.stopwatch, .stopwatch .controller {
+  cursor: none;
+}
